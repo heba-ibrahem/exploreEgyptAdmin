@@ -1,0 +1,33 @@
+<section class="section-1">
+    <nav class="navbar navbar-dark sticky-top bg-primary flex-md-nowrap p-0 shadow">
+        <div class="brand-div col-md-3 col-lg-2 mr-0">
+            <a class=" navbar-brand  px-3" href="#">Explor Egypt</a>
+            <button type="button"  data-target ="#sidebar" class="btn">
+                <i><fa-icon [icon]="faAlignLeft"></fa-icon></i>
+            </button>
+        </div>
+        <!-- <div class="search">
+            <input class="form-control form-control-dark" type="text" placeholder="Search" aria-label="Search">
+        </div> -->
+        <div class="icons">
+            <ul>
+                <!-- <li>
+                    <a class="nav-bar-icons" href="#" style="color: white;">
+                        <i><fa-icon [icon]="faBell"></fa-icon></i>
+                    </a>
+
+                </li> -->
+                <li>
+                    <a class="nav-bar-icons" (click)="logout()" style="color:white;">
+                       <i ><fa-icon [icon]="faDoorOpen"></fa-icon></i>
+                       Log out
+                    </a>
+
+                </li>
+
+            </ul>
+        </div>
+
+
+    </nav>
+</section>

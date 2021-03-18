@@ -1,0 +1,95 @@
+<br> <br>
+<div class="container">
+
+  <form [formGroup]="AddHotelForm" (ngSubmit)="editHotel()">
+    <!-- <div class="form-group row">
+      <label for="ID" class="col-sm-2 ">Hotel ID</label>
+      <div class="col-sm-10">
+        <input readonly type="text" class="form-control" id="ID" placeholder="Hotel ID">
+      </div>
+    </div> -->
+
+    <div class="form-group row">
+      <label for="hotelName" class="col-sm-2">Hotel name</label>
+      <div class="col-sm-10">
+        <input type="text " class="form-control" required formControlName="hotelName" placeholder="Hotel Name">
+        <div
+          *ngIf=" AddHotelForm.controls['hotelName'].invalid && (AddHotelForm.controls['hotelName'].dirty || AddHotelForm.controls['hotelName'].touched)">
+          <div *ngIf="AddHotelForm.controls['hotelName']">Hotel name</div>
+        </div>
+    </div>
+      </div>
+      <div class="form-group row">
+        <label for="img" class="col-sm-2">Image</label>
+        <div class="col-sm-10">
+  
+          <input type="text " class="form-control" required formControlName="img" placeholder="Enter image URL">
+          <div
+            *ngIf=" AddHotelForm.controls['hotelName'].invalid && (AddHotelForm.controls['hotelName'].dirty || AddHotelForm.controls['hotelName'].touched)">
+            <div *ngIf="AddHotelForm.controls['hotelName']">Enter img url</div>
+          </div>
+        </div>
+      </div>
+      
+    <div class="form-group row">
+      <label for="city" class="col-sm-2">city</label>
+      <div class="col-sm-10">
+        <select class="form-control" required formControlName="city">
+
+          <option *ngFor="let city of CityList" [value]='city.name'>{{city.name}}</option>
+        </select>
+        <div
+          *ngIf=" AddHotelForm.controls['city'].invalid && (AddHotelForm.controls['city'].dirty || AddHotelForm.controls['city'].touched)">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label for="city" class="col-sm-2">cityID</label>
+      <div class="col-sm-10">
+        <select class="form-control" required formControlName="cityID">
+
+          <option *ngFor="let city of CityList" [value]='city.id'>{{city.name}} : {{city.id}}</option>
+          <div
+          *ngIf=" AddHotelForm.controls['cityID'].invalid && (AddHotelForm.controls['cityID'].dirty || AddHotelForm.controls['cityID'].touched)">
+        </div>
+        </select>
+      </div>
+    </div>
+
+
+
+    <div class="form-group row">
+      <label for="adress" class="col-sm-2 ">adress</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" required formControlName="adress" placeholder="adress">
+        <div
+          *ngIf=" AddHotelForm.controls['adress'].invalid && (AddHotelForm.controls['adress'].dirty || AddHotelForm.controls['adress'].touched)">
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="contactInfo" class="col-sm-2 ">Contact info</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" required formControlName="contactInfo" placeholder="Contact info">
+        <div
+          *ngIf=" AddHotelForm.controls['contactInfo'].invalid && (AddHotelForm.controls['contactInfo'].dirty || AddHotelForm.controls['contactInfo'].touched)">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label for="roomPrice" class="col-sm-2 ">Room price</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" required formControlName="roomPrice" placeholder="Room price">
+        <div
+          *ngIf=" AddHotelForm.controls['roomPrice'].invalid && (AddHotelForm.controls['roomPrice'].dirty || AddHotelForm.controls['roomPrice'].touched)">
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="AddHotelForm.invalid" class="btn btn-block btn-primary ">edit</button>
+  </form>
+</div>

@@ -1,0 +1,84 @@
+
+<section class="view-explore-articles-sec">
+  <div class="container py-3">
+    <div class="row">
+      <div *ngFor="let article of exploreArticles" class="col-md-6 mb-4">
+        <div class="article">
+          <div class="head">
+            <h5>ID: {{article.id}}</h5>
+            <h5>Page: {{article.page}}</h5>
+          </div>
+          <h3>{{article.title}}</h3>
+          <p>{{article.description}}</p>
+          <div class="images d-flex">
+            <img *ngFor="let img of article.Images" class="mr-2" width="90px" [src]="'assets/images/' + img" alt="">
+          </div>
+          <div class="form-group mt-3">
+            <button (click)="setFormForUpdate(article.id)" data-toggle="modal" data-target="#updateFormModal" class="btn btn-info mr-3">Update</button>
+            <button (click)="deleteArticle(article.id)" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="updateFormModal" tabindex="-1" role="dialog" aria-labelledby="updateFormModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+              
+              <form [formGroup]="ArticleFrom" (ngSubmit)="updateArticle()">
+                <div class="form-group">
+                  <label for="page">Page:</label>
+                  <select formControlName="page" class="form-control" id="page">
+                    <option value="Culture">Culture</option>
+                    <option value="About">About</option>
+                  </select>
+                </div>
+
+                <input formControlName="id" hidden type="number" name="" id="">
+                
+                <div class="form-group">
+                  <label for="">Name:</label>
+                  <input formControlName="name" class="form-control" type="text" placeholder="Article Name">
+                </div>
+                <div class="form-group">
+                  <label for="">Title:</label>
+                  <input formControlName="title" class="form-control" type="text" placeholder="Article Title">
+                </div>
+                <div class="form-group">
+                  <label for="">Description:</label>
+                  <input formControlName="description" class="form-control" type="text" placeholder="Article Description">
+                </div>
+                <div class="form-group">
+                  <label for="">Images:</label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                      <input (change)="getImages($event)" type="file" multiple class="custom-file-input" id="images_input" aria-describedby="inputGroupFileAddon01">
+                      <label class="custom-file-label" for="images_input">{{ label_text }}</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button [disabled]="!ArticleFrom.valid" class="btn btn-primary">Update</button>
+                </div>
+              </form>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,113 @@
+<h2 id="head">Add Activities Article</h2>
+<form [formGroup]='activitiesArticles' (ngSubmit)="add()">
+  <div class="form-group row">
+    <label for="title" class="col-3"> Article Title:</label>
+    <input type="text" name="" id="title" class="form-control col-7" formControlName='title'>
+  </div>
+  <div class="form-group row">
+    <label for="Description" class="col-3"> Article Description:</label>
+    <input type="text" name="" id="Description" class="form-control col-7" formControlName='description'>
+  </div>
+  <div class="form-group row">
+    <label for="department" class="col-3">Article Department:</label>
+    <select class="form-control col-7" id="department" formControlName="dep">
+      <option *ngFor='let dep of departments;' value={{dep.id}}>{{dep.title}}</option>
+    </select>
+  </div>
+  <div class="form-group row">
+    <label for="coverImg" class="col-3 .custom-file-label">Cover Image:</label>
+    <div class="avatar-edit col-7">
+      <label for="coverImg"><svg id="Capa_1" enable-background="new 0 0 512 512" height="40" viewBox="0 0 512 512"
+          width="40" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <g>
+              <path
+                d="m365.804 63.852c5.522 0 10-4.478 10-10s-4.478-10-10-10h-.057c-5.522 0-9.972 4.478-9.972 10s4.506 10 10.029 10z" />
+              <path
+                d="m410.764 63.852c5.522 0 10-4.478 10-10s-4.478-10-10-10h-.028c-5.522 0-9.986 4.478-9.986 10s4.491 10 10.014 10z" />
+              <path
+                d="m320.816 63.852c5.522 0 10-4.478 10-10s-4.478-10-10-10h-.028c-5.522 0-9.986 4.478-9.986 10s4.492 10 10.014 10z" />
+              <path
+                d="m101.236 63.852h125.206c5.522 0 10-4.478 10-10s-4.478-10-10-10h-125.206c-5.522 0-10 4.478-10 10s4.478 10 10 10z" />
+              <path
+                d="m397.659 439.276h-283.318c-5.522 0-10 4.478-10 10v52.724c0 5.522 4.478 10 10 10h96.728c5.522 0 10-4.478 10-10s-4.478-10-10-10h-86.728v-32.724h263.318v32.724h-86.728c-5.522 0-10 4.478-10 10s4.478 10 10 10h96.728c5.522 0 10-4.478 10-10v-52.724c0-5.522-4.477-10-10-10z" />
+              <path
+                d="m256 492c-5.522 0-10 4.478-10 10s4.478 10 10 10h.057c5.522 0 9.972-4.478 9.972-10s-4.507-10-10.029-10z" />
+              <path
+                d="m442.591 0h-373.182c-15.665 0-28.409 12.738-28.409 28.396v308.347c0 15.658 12.744 28.396 28.409 28.396h129.561v38.557c0 5.522 4.478 10 10 10h94.061c5.522 0 10-4.478 10-10v-38.556h129.561c15.665 0 28.409-12.738 28.409-28.396v-308.348c-.001-15.658-12.745-28.396-28.41-28.396zm-373.182 20h373.182c4.637 0 8.409 3.767 8.409 8.396v59.306h-390v-59.306c0-4.629 3.772-8.396 8.409-8.396zm149.561 373.696v-136.662c0-5.522-4.478-10-10-10h-22.508l69.538-69.489 69.538 69.489h-22.508c-5.522 0-10 4.478-10 10v136.662zm223.621-48.556h-129.561v-78.105h36.662c4.045 0 7.692-2.438 9.239-6.175 1.548-3.737.69-8.039-2.171-10.898l-93.692-93.626c-3.904-3.902-10.232-3.902-14.137 0l-93.692 93.626c-2.861 2.859-3.719 7.161-2.171 10.898 1.547 3.737 5.194 6.175 9.239 6.175h36.662v78.105h-129.56c-4.637 0-8.409-3.767-8.409-8.396v-229.042h390v229.041c0 4.63-3.772 8.397-8.409 8.397z" />
+            </g>
+          </g>
+        </svg></label>
+      <input (change)="oneImage($event)" type='file' id="coverImg" accept=".png, .jpg, .jpeg" />
+
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="city" class="col-3"> Article City:</label>
+    <input type="text" name="" id="city" class="form-control col-7" formControlName='city'>
+  </div>
+  <div class="form-group row">
+    <label for="section" class="col-3">Article Section:</label>
+    <select class="form-control col-7" id="section" formControlName='section'>
+      <option *ngFor='let sec of sections;' value={{sec}}>{{sec}}</option>
+    </select>
+  </div>
+  <div class="form-group row">
+    <label class="col-3 .custom-file-label">Article Images: </label>
+    <div class="avatar-edit col-7">
+      <label for="artImg1" class="d-inline m-2"><svg id="Capa_1" enable-background="new 0 0 512 512" height="40"
+          viewBox="0 0 512 512" width="40" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <g>
+              <path
+                d="m365.804 63.852c5.522 0 10-4.478 10-10s-4.478-10-10-10h-.057c-5.522 0-9.972 4.478-9.972 10s4.506 10 10.029 10z" />
+              <path
+                d="m410.764 63.852c5.522 0 10-4.478 10-10s-4.478-10-10-10h-.028c-5.522 0-9.986 4.478-9.986 10s4.491 10 10.014 10z" />
+              <path
+                d="m320.816 63.852c5.522 0 10-4.478 10-10s-4.478-10-10-10h-.028c-5.522 0-9.986 4.478-9.986 10s4.492 10 10.014 10z" />
+              <path
+                d="m101.236 63.852h125.206c5.522 0 10-4.478 10-10s-4.478-10-10-10h-125.206c-5.522 0-10 4.478-10 10s4.478 10 10 10z" />
+              <path
+                d="m397.659 439.276h-283.318c-5.522 0-10 4.478-10 10v52.724c0 5.522 4.478 10 10 10h96.728c5.522 0 10-4.478 10-10s-4.478-10-10-10h-86.728v-32.724h263.318v32.724h-86.728c-5.522 0-10 4.478-10 10s4.478 10 10 10h96.728c5.522 0 10-4.478 10-10v-52.724c0-5.522-4.477-10-10-10z" />
+              <path
+                d="m256 492c-5.522 0-10 4.478-10 10s4.478 10 10 10h.057c5.522 0 9.972-4.478 9.972-10s-4.507-10-10.029-10z" />
+              <path
+                d="m442.591 0h-373.182c-15.665 0-28.409 12.738-28.409 28.396v308.347c0 15.658 12.744 28.396 28.409 28.396h129.561v38.557c0 5.522 4.478 10 10 10h94.061c5.522 0 10-4.478 10-10v-38.556h129.561c15.665 0 28.409-12.738 28.409-28.396v-308.348c-.001-15.658-12.745-28.396-28.41-28.396zm-373.182 20h373.182c4.637 0 8.409 3.767 8.409 8.396v59.306h-390v-59.306c0-4.629 3.772-8.396 8.409-8.396zm149.561 373.696v-136.662c0-5.522-4.478-10-10-10h-22.508l69.538-69.489 69.538 69.489h-22.508c-5.522 0-10 4.478-10 10v136.662zm223.621-48.556h-129.561v-78.105h36.662c4.045 0 7.692-2.438 9.239-6.175 1.548-3.737.69-8.039-2.171-10.898l-93.692-93.626c-3.904-3.902-10.232-3.902-14.137 0l-93.692 93.626c-2.861 2.859-3.719 7.161-2.171 10.898 1.547 3.737 5.194 6.175 9.239 6.175h36.662v78.105h-129.56c-4.637 0-8.409-3.767-8.409-8.396v-229.042h390v229.041c0 4.63-3.772 8.397-8.409 8.397z" />
+            </g>
+          </g>
+        </svg></label>
+      <input (change)="imagesInArray($event)" type='file' id="artImg1" accept=".png, .jpg, .jpeg" multiple />
+    </div>
+  </div>
+
+  <div class="form-group form-row">
+    <br>
+    <label for="aContent1" class="col-3">content sec:</label>
+    <textarea id="aContent1"  rows="3" class="form-control col-7 m-1 sec"></textarea>
+    <!-- <button type="button" style="height: 35px;margin-top: 2.5vh; padding: 0;" (click)="addSec()" class="btn"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512" height="15"
+    viewBox="0 0 512 512" width="15" xml:space="preserve">
+      <g>
+        <g>
+          <path d="M492,236H276V20c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20v216H20c-11.046,0-20,8.954-20,20s8.954,20,20,20h216
+       v216c0,11.046,8.954,20,20,20s20-8.954,20-20V276h216c11.046,0,20-8.954,20-20C512,244.954,503.046,236,492,236z" />
+        </g>
+      </g>
+
+    </svg> -->
+  <!-- </button> -->
+
+  </div>
+  <div class="showInputField"></div>
+
+  <button type="button" class="d-block btn" style="margin: 0 auto;" (click)="MoreContent()">Another Section?</button>
+  <button type="button" class="d-block btn" style="margin: 0 auto;" (click)="addSec()">Merge Sections</button>
+
+  <div class="form-group form-row">
+    <label for="" class="col-3">Article content: </label>
+    <textarea id="aContent" readonly rows="7" class="form-control col-7 m-1" formControlName='content'></textarea>
+  </div>
+  <br>
+  <div class="form-group">
+    <button [disabled]="!activitiesArticles.valid" class="btn btn-primary">Add / Update Article</button>
+  </div>
+</form>

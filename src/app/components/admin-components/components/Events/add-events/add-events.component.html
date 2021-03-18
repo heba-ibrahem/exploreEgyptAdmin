@@ -1,0 +1,56 @@
+<!--  page tital -->
+<div class=" pt-0 pb-5 mb-3 border-bottom">
+</div>
+<h2 class="mb-4">Add Event</h2>
+ <div class="alert alert-success" *ngIf="isAdded">
+  Added successfully
+</div>
+<form [formGroup]='List' (ngSubmit)="addEvent()">
+  <div class="form-group row">
+    <label for="title" class="col-2">Event Title:</label>
+    <div class="col-9">
+    <input type="text" name="" id="title" class="form-control " formControlName='title'>
+    <p class="text-danger" *ngIf="List.controls['title'].invalid  && List.controls['title'].touched">
+      title lenght must be more than 5 char</p>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Description" class="col-2">Event Description:</label>
+    <div class="col-9">
+    <input type="text" name="" id="Description" class="form-control" formControlName='description' >
+    <p class="text-danger" *ngIf="List.controls['description'].invalid  && List.controls['description'].touched">
+      description lenght must be more than 10 char</p>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="date" class="col-2">Event Date:</label>
+    <div class="col-9">
+    <input type="datetime-local" name="" id="date" class="form-control" formControlName='date' >
+    <p class="text-danger" *ngIf="List.controls['date'].invalid  && List.controls['date'].touched">
+      Date is required</p>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2" for="">Event Images:</label>
+    <div class="input-group mb-3 col-9">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+      </div>
+      <div class="custom-file">
+        <input (change)="loadImage($event)" type="file" class="custom-file-input" id="images_input" aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label" for="images_input">{{ label_text }}</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group form-row">
+    <label for="aContent" class="col-2">Event content:</label>
+    <div class="col-9">
+    <textarea id="aContent" rows="4" class="form-control" formControlName='seconddescription'></textarea>
+    <p class="text-danger" *ngIf="List.controls['seconddescription'].invalid  && List.controls['seconddescription'].touched">
+      content lenght must be more than 20 char</p>
+    </div>
+  </div>
+  <div class="form-group text-center mt-4">
+    <button [disabled]="!List.valid" class="btn btn-primary">Add Event</button>
+  </div>
+</form>

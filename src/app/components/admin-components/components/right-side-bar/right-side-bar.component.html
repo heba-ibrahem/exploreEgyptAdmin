@@ -1,0 +1,66 @@
+  <!-- Sidebar  -->
+  <nav id="sidebar" class="col-sm-2">
+    <ul class="list-unstyled components">
+      <p> Main Menu</p>
+      <li>
+        <a routerLink="/dashboard" routerLinkActive="router-link-active" > Dashboard</a>
+      </li>
+     
+
+      <li>
+
+        <a routerLink="/allusers" routerLinkActive="router-link-active" >All User</a>
+       
+      </li>
+      <li>
+        <a routerLink="/hotels/all"> Hotels</a>
+       
+      </li>
+      <li>
+        <a routerLink="/trains/all"> Trains</a>
+      </li>
+      <li>
+        <a href="#activitiesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+          <i class="fas fa-h-square"></i>
+          Activities Articles</a>
+        <ul class="collapse list-unstyled" id="activitiesSubmenu">
+          <li>
+            <a routerLink="/activitiesArticles">All Activities Articles</a>
+          </li>
+          <li>
+            <a  routerLink="/addActivitiesArticle">Add New Activities Article</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#articlesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+          <i class="fas fa-chart-bar"></i>
+          Articles</a>
+        <ul class="collapse list-unstyled" id="articlesSubmenu">
+          <li>
+            <a routerLink="/viewExploreArticles">Explore Articles</a>
+          </li>
+          <li>
+            <a routerLink="/addExploreArticle">Add Explore Article</a>
+            <!-- <a [routerLink]="[ '/path', routeParam ]">name</a> -->
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle active">
+          <i class="fas fa-calendar-minus"></i>
+          Events</a>
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+          <li>
+            <a [routerLink]="['/allevents']" >All Events</a>
+          </li>
+          <li>
+            <a [routerLink]="['/addevent']" >Add new Event</a>
+          </li>
+
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+

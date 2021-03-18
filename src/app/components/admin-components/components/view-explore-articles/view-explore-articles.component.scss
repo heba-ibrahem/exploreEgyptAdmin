@@ -1,0 +1,17 @@
+
+
+.view-explore-articles-sec {
+  .article {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 5px 10px 20px rgba(0,0,0,0.1);
+    .head {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      border-bottom: 1px solid #efefef;
+      margin-bottom: 10px;
+    }
+  }
+}

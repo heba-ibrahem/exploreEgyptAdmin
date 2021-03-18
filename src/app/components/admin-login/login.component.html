@@ -1,0 +1,47 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form [formGroup]="LoginForm" (ngSubmit)="login()" class="login100-form">
+                <div>
+                    <div class="login100-form-logo">
+                        <img src="assets/images/EXEG.png" alt="">
+                    </div>
+                    <div class="alert alert-danger p-2 text-center" *ngIf="islogged" style=" margin: 7px 0px;">
+                               You are not admin -)))
+                    </div>
+                    <div class="login100-form-title p-b-34 p-t-27" style="margin-top: 20px;">
+                        Log in
+                    </div>
+                </div>
+               
+                <div class="wrap-input100 " data-validate = "Enter username">
+                    <input class="input100" type="email" name="username" placeholder="Username" formControlName="email"
+                     required>
+                     <p class="text-danger" *ngIf="LoginForm.controls['email'].invalid  && LoginForm.controls['email'].touched">
+                        Please enter admain email</p>
+                </div>
+                
+
+                <div class="wrap-input100 " data-validate="Enter password">
+                    <input formControlName="password" class="input100" type="password" name="pass" placeholder="Password" required minlength="6" >
+                    <p class="text-danger" *ngIf="LoginForm.controls['password'].invalid  && LoginForm.controls['password'].touched">
+                        Please enter admain password</p>
+                </div>
+
+                <!-- <div class="contact100-form-checkbox">
+                    <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                    <label class="label-checkbox100" for="ckb1">
+                        Remember me
+                    </label>
+                </div> -->
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" type="submit">
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

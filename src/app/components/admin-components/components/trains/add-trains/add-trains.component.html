@@ -1,0 +1,116 @@
+<br> <br>
+<div class="container">
+  <form [formGroup]="AddTrainForm" (ngSubmit)="AddTrain()">
+    <div class="form-group row">
+      <label for="ID" class="col-sm-2 ">Train ID</label>
+      <div class="col-sm-10">
+        <input readonly type="text " class="form-control" id="ID" placeholder="Train ID">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="trainNumber" class="col-sm-2 ">Train Number</label>
+      <div class="col-sm-10">
+        <input type="text" minlength="3" #trainNumber class="form-control" required formControlName="trainNumber"
+          id="trainNumber" placeholder="Train Number">
+        <div
+          *ngIf=" AddTrainForm.controls['trainNumber'].invalid && (AddTrainForm.controls['trainNumber'].dirty || AddTrainForm.controls['trainNumber'].touched)">
+          <div *ngIf="AddTrainForm.controls['trainNumber']">min length is 3 and only numbers with no spaces</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group row">
+      <label for="city" class="col-sm-2">city</label>
+      <div class="col-sm-10">
+        <select class="form-control" required formControlName="city" >
+          <!-- <option >Choose City</option> -->
+          <option *ngFor="let ciity of CityList" [value]='ciity.name'>{{ciity.name}}</option>
+        </select>
+        <div
+          *ngIf="AddTrainForm.controls['city'].invalid && (AddTrainForm.controls['city'].dirty || AddTrainForm.controls['city'].touched)">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="city" class="col-sm-2">cityID</label>
+      <div class="col-sm-10">
+        <select class="form-control" formControlName="cityID" required>
+          <!-- <option>Choose City</option> -->
+          <option *ngFor="let ciity of CityList" [value]='ciity.id'>{{ciity.name}}</option>
+        </select>
+        <div
+          *ngIf="AddTrainForm.controls['cityID'].invalid && (AddTrainForm.controls['cityID'].dirty || AddTrainForm.controls['cityID'].touched)">
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="destination" class="col-sm-2">destination</label>
+      <div class="col-sm-10">
+        <select class="form-control" formControlName="destination" required>
+          <option *ngFor="let destination of CityList" [value]='destination.name'>{{destination.name}}</option>
+        </select>
+        <div
+          *ngIf="AddTrainForm.controls['destination'].invalid && (AddTrainForm.controls['destination'].dirty || AddTrainForm.controls['destination'].touched)">
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="destination" class="col-sm-2">destinationID</label>
+      <div class="col-sm-10">
+        <select class="form-control" formControlName="destinationId" required>
+          <option *ngFor="let destination of CityList" [value]='destination.id'>{{destination.name}}</option>
+        </select>
+        <div
+          *ngIf="AddTrainForm.controls['destinationId'].invalid && (AddTrainForm.controls['destinationId'].dirty || AddTrainForm.controls['destinationId'].touched)">
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="departureTime" class="col-sm-2 ">departure Time</label>
+      <div class="col-sm-10">
+        <input type="time" class="form-control" required formControlName="departureTime" placeholder="departureTime">
+      </div>
+      <div
+          *ngIf="AddTrainForm.controls['departureTime'].invalid && (AddTrainForm.controls['departureTime'].dirty || AddTrainForm.controls['departureTime'].touched)">
+        </div>
+    </div>
+    <div class="form-group row">
+      <label for="arrivalTime" class="col-sm-2 ">arrival Time </label>
+      <div class="col-sm-10">
+        <input type="time" class="form-control" required formControlName="arrivalTime" placeholder="arrival Time">
+      </div>
+      <div
+          *ngIf="AddTrainForm.controls['arrivalTime'].invalid && (AddTrainForm.controls['arrivalTime'].dirty || AddTrainForm.controls['arrivalTime'].touched)">
+        </div>
+    </div>
+    <div class="form-group row">
+      <label for="details" class="col-sm-2 ">details </label>
+      <div class="col-sm-10">
+        <select class="form-control" formControlName="details" required>
+          <option>Special Service OD </option>
+          <option>Speed AC Spanish </option>
+
+        </select>
+      </div>
+      <div
+          *ngIf="AddTrainForm.controls['details'].invalid && (AddTrainForm.controls['details'].dirty || AddTrainForm.controls['details'].touched)">
+        </div>
+    </div>
+
+
+
+    <div class="form-group row">
+      <label for="ticketPrice" class="col-sm-2 ">ticket Price</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" required formControlName="ticketPrice" placeholder="ticketPrice">
+      </div>
+      <div
+          *ngIf="AddTrainForm.controls['ticketPrice'].invalid && (AddTrainForm.controls['ticketPrice'].dirty || AddTrainForm.controls['ticketPrice'].touched)">
+        </div>  
+    </div>
+
+    <button type="submit" [disabled]="AddTrainForm.invalid" class="btn btn-block btn-primary ">Add</button>
+  </form>
+</div>

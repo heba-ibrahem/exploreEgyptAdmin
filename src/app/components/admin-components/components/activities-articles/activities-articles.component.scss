@@ -1,0 +1,29 @@
+.myrow
+{
+display: flex;
+justify-content: space-evenly;
+}
+.art{
+
+padding-bottom: 10vh;
+}
+.t{ display: flex;
+  flex-direction: row;}
+.edit,.delete{
+border: none;
+height: 37px;
+width: 37px;
+}
+
+.img{
+height: 20vh;
+margin-right: 2vh;
+
+}
+.title1{
+font-size: 1.4em;
+}
+#head{
+margin-left: 3vw;
+margin-bottom: 5vh;
+}
